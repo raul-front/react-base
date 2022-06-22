@@ -1,8 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import config from '@/config'
+import { copy } from 'utils/index'
 
 function App() {
+  console.log('config', config)
   return (
     <div className="App">
       <header className="App-header">
