@@ -1,5 +1,11 @@
-import axios from 'axios'
+import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
 import config from '@/config'
+
+interface ResponseData<T>{
+  code: number;
+  data: T;
+  message: string;
+}
 
 const request = axios.create({
   baseURL: config.baseUrl,
@@ -10,14 +16,15 @@ const request = axios.create({
 })
 
 // request interceptors
-request.interceptors.request.use(config => {
+request.interceptors.request.use((config: AxiosRequestConfig) => {
   return config
-}, error => {
+}, (error: AxiosError) => {
   return Promise.reject(error)
 })
 
 // response interceptors
-request.interceptors.response.use(({ config, data }) => {
+request.interceptors.response.use((response: AxiosResponse<ResponseData<any>>) => {
+  const { data } = response
   if (data.code === 200) {
     return data.data
   } else {
@@ -55,24 +62,24 @@ export const toLogin = () => {
   // goPath('login')
 }
 
-export const _get = (url: string, query: any) => {
+export const _get = (url: string, query: any): Promise<any> => {
   return request.get(url, { params: query })
 }
-export const _download = (url: string, query: any) => {
+export const _download = (url: string, query: any): Promise<any> => {
   return request.get(url, { params: query, responseType: 'blob' })
 }
-export const _post = (url: string, body: any) => {
+export const _post = (url: string, body: any): Promise<any> => {
   return request.post(url, body )
 }
-export const _upload = (url: string, data: any, config: any = null) => {
+export const _upload = (url: string, data: any, config: any = null): Promise<any> => {
   return request.post(url, data, { headers: { 'Content-Type': 'multipart/form-data' }, ...config })
 }
-export const _patch = (url: string, body: any) => {
+export const _patch = (url: string, body: any): Promise<any> => {
   return request.patch(url, body)
 }
-export const _put = (url: string, body: any) => {
+export const _put = (url: string, body: any): Promise<any> => {
   return request.put(url, body)
 }
-export const _delete = (url: string) => {
+export const _delete = (url: string): Promise<any> => {
   return request.delete(url)
 }

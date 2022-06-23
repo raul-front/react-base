@@ -1,3 +1,6 @@
+dev:
+	yarn start
+
 build-test:
 	rm -rf build
 	mv .env.production .env.production_back
