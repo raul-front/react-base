@@ -10,4 +10,4 @@ const Config: IConfig = {
   // common config
 }
 
-export default Config;
+export default Config

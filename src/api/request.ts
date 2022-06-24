@@ -61,7 +61,6 @@ export const toLogin = () => {
   // ElNotification.error({ title: 'Error', message: msg })
   // goPath('login')
 }
-
 export const _get = (url: string, query: any): Promise<any> => {
   return request.get(url, { params: query })
 }
@@ -69,7 +68,7 @@ export const _download = (url: string, query: any): Promise<any> => {
   return request.get(url, { params: query, responseType: 'blob' })
 }
 export const _post = (url: string, body: any): Promise<any> => {
-  return request.post(url, body )
+  return request.post(url, body)
 }
 export const _upload = (url: string, data: any, config: any = null): Promise<any> => {
   return request.post(url, data, { headers: { 'Content-Type': 'multipart/form-data' }, ...config })
