@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { FC } from 'react'
 import logo from './logo.svg'
+import { Button } from 'antd'
 
-function App () {
+const App: FC = () => {
   const a = {
     a: 1,
     b: 2,
@@ -29,7 +30,8 @@ function App () {
         >
           Learn React
         </a>
-        <button onClick={handleClick}>click</button>
+        <Button type="primary" onClick={handleClick}>Button</Button>
+
       </header>
     </div>
   )

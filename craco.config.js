@@ -1,6 +1,6 @@
 const path = require('path')
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
-const cracoSassResourcesLoader = require('craco-sass-resources-loader')
+const CracoLessPlugin = require('craco-less')
 
 module.exports = {
   // webpack 配置
@@ -9,9 +9,9 @@ module.exports = {
     alias: {
       // 约定：使用 @ 表示 src 文件所在路径
       '@': path.resolve(__dirname, 'src'),
-      'pages': path.resolve(__dirname, 'src/pages'),
-      'api': path.resolve(__dirname, 'src/api'),
-      'utils': path.resolve(__dirname, 'src/utils'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      api: path.resolve(__dirname, 'src/api'),
+      utils: path.resolve(__dirname, 'src/utils'),
     },
     plugins: {
       add: [
@@ -22,13 +22,17 @@ module.exports = {
     },
   },
   plugins: [
-    // 添加scss全局变量
     {
-      plugin: cracoSassResourcesLoader,
+      plugin: CracoLessPlugin,
       options: {
-        resources: [
-          path.resolve(__dirname, 'src/styles/variables.scss')
-        ],
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: {
+              '@primary-color': '#1DA57A',
+            },
+            javascriptEnabled: true,
+          },
+        },
       },
     },
   ],

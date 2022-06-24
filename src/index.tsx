@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './virtual:windi.css'
 // import './virtual:windi-devtools'
-import './styles/index.scss'
+import './styles/index.less'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
