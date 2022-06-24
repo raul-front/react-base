@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["windi", "windicss"]
+  "cSpell.words": ["windi", "windicss"],
+  "javascript.validate.enable": false,
 }

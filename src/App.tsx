@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
-import logo from './logo.svg'
-import { Button } from 'antd'
+import logo from '@/assets/logo.svg'
+import { Button, Empty } from 'antd'
+import SvgIcon from '@/components/common/SvgIcon'
 
 const App: FC = () => {
   const a = {
@@ -31,7 +32,8 @@ const App: FC = () => {
           Learn React
         </a>
         <Button type="primary" onClick={handleClick}>Button</Button>
-
+        <SvgIcon type="icon-shoppingcart" />
+        <Empty />
       </header>
     </div>
   )

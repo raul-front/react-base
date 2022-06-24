@@ -17,3 +17,12 @@ make build-test
 ```
 make build
 ```
+
+# 配置
+* 环境变量
+* 别名
+* windicss
+* eslint
+* antd
+* less
+* svg-icon
